@@ -1,0 +1,39 @@
+<div class="container">
+    <header>
+        <h1>Liste des livres</h1>
+        <div class="row">
+            <input type="button" value="Ajouter un livre" class="btn btn-primary" [routerLink]="['/livres', 'add']">
+            <input type="button" value="Déconnexion" class="float-left btn btn-danger" (click)="logOut()">
+
+        </div>
+    </header>
+    <main>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Titre</th>
+                    <th scope="col">ISBN</th>
+                    <th scope="col">Categorie</th>
+                    <th scope="col">Auteur</th>
+                    <th scope="col">Editer</th>
+                    <th scope="col">Supprimer</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let book of books; let indice = index">
+                    <th scope="row">{{indice + 1}}</th>
+                    <td>{{book.title}}</td>
+                    <td>{{book.isbn}}</td>
+                    <td>{{book.categorie}}</td>
+                    <td>
+                        <span *ngIf="book.auteur">{{book.auteur.nom}}</span>
+                    </td>
+                    <td><i class="fa fa-edit" [routerLink]="['/livres', 'edit', book.isbn]"></i></td>
+                    <td><i class="fa fa-trash" (click)="bookService.deleteBookByIsbn(book.isbn)"></i></td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+
+</div>

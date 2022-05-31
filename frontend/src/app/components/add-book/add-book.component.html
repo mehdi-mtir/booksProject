@@ -1,0 +1,29 @@
+ <div class="container">
+    <h1>Ajouter un Livre</h1>
+    <form (ngSubmit)="addBook(f)" #f=ngForm>
+        <div class="form-group">
+            <label for="titre">Titre</label>
+            <input type="text" class="form-control" id="titre" name="titre" ngModel>
+        </div>
+        <div class="form-group">
+            <label for="isbn">ISBN</label>
+            <input type="text" class="form-control" id="isbn" name="isbn" ngModel>
+        </div>
+        <div class="form-group">
+            <label for="classe">Categorie</label>
+            <select id="classe" name="categorie" ngModel class="form-control">
+                  <option value="C1">C1</option>
+                  <option value="C2">C2</option>
+                  <option value="C3">C3</option>
+              </select>
+        </div>
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="Nom" name="nom" ngModel/>
+            <span class="input-group-addon">-</span>
+            <input type="text" class="form-control" placeholder="Prenom" name="prenom" ngModel/>
+            <span class="input-group-addon">-</span>
+            <input type="text" class="form-control" placeholder="Email" name="email" ngModel/>
+        </div>
+        <button type="submit" class="btn btn-primary">Valider</button>
+    </form>
+</div>
